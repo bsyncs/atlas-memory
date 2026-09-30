@@ -1,6 +1,6 @@
 {
   "name": "@bsyncs/atlas-memory",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "private": true,
   "description": "Persistent Atlas memory with automatic context hydration for AI agents.",
   "repository": {

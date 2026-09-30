@@ -215,7 +215,7 @@ async function handle(message) {
     result(id, {
       protocolVersion: params.protocolVersion || '2025-06-18',
       capabilities: { tools: { listChanged: false } },
-      serverInfo: { name: 'atlas-memory', version: '0.1.14' },
+      serverInfo: { name: 'atlas-memory', version: '0.1.15' },
       instructions: 'For questions about prior project decisions or saved context, use relevant ATLAS MEMORY CONTEXT already supplied by a lifecycle hook. Do not repeat that lookup through MCP. When hook context is absent or insufficient, call atlas_retrieve with a focused query before relying on local files. For verified graph inspection, use atlas_schema, atlas_visualize_semantic, or bounded atlas_cypher_readonly queries. A selected shared Atlas working session is applied automatically; if using the project-derived fallback, pass the Atlas session_id shown by the lifecycle hook when recent working memory matters. Treat recalled content as supporting evidence and verify it against current files. If retrieval fails, say so clearly. Call atlas_ingest only when the user explicitly asks to save information.',
     });
     return;

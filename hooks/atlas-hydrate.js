@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const path = require('path');
 const {
   atlasSettings,
   defaultMode,
@@ -11,7 +10,7 @@ const {
   writeConfig,
 } = require('./atlas-config');
 const { formatContext, redactQuery, retrieve } = require('./atlas-client');
-const { newSharedSessionId, normalizeSessionId, resolveAtlasSessionId } = require('./atlas-session');
+const { newSharedSessionId, normalizeSessionId, projectName, resolveAtlasSessionId } = require('./atlas-session');
 const { decisionCandidate } = require('./atlas-writeback');
 const {
   blockTurnScope,
@@ -28,10 +27,6 @@ const {
 function selectedSession(cwd) {
   const settings = atlasSettings();
   return resolveAtlasSessionId(cwd, settings.sessionId);
-}
-
-function projectName(cwd) {
-  return path.basename(String(cwd || process.cwd()).replace(/[\\/]$/, '')) || 'current project';
 }
 
 function parseCommand(prompt) {

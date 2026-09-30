@@ -1,6 +1,6 @@
 {
   "name": "atlas-memory",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "Hydrate sessions and subagents and optionally preserve durable continuity in Atlas cognitive memory.",
   "author": {
     "name": "Bsyncs",

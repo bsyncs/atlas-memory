@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const path = require('path');
 const { atlasSettings } = require('./atlas-config');
 const { ingest } = require('./atlas-client');
+const { projectName } = require('./atlas-session');
 const {
   hasWritebackReceipt,
   hookOutput,
@@ -88,7 +88,7 @@ async function run(data, dependencies = {}) {
   if (event === 'Stop' && hasWritebackReceipt(data.session_id, data.turn_id)) return {};
   const settings = atlasSettings();
   if (!settings.apiKey) return hookOutput(event, '', 'Atlas writeback skipped: ATLAS_API_KEY is not configured.');
-  const project = path.basename(String(data.cwd || process.cwd()).replace(/[\\/]$/, '')) || 'current project';
+  const project = projectName(data.cwd);
   const turnScope = readTurnScope(data.session_id, data.turn_id);
   if (!turnScope) return {};
   const atlasSessionId = turnScope.atlasSessionId;

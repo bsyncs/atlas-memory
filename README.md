@@ -4,7 +4,7 @@
 
 Atlas Memory connects an AI agent to [BrainSync Atlas](https://atlas.bsyncs.com/). Atlas combines episodic, semantic, and working memory with hybrid recall and managed memory maintenance over time. This plugin brings relevant memories into the agent's current context, then lets you decide what to save for later. **Codex is the first implemented host.**
 
-> **v0.1.14 · Built for Codex.** Automatic recall brings relevant Atlas memory into each session while saving remains under your control.
+> **v0.1.15 · Built for Codex.** Automatic recall brings relevant Atlas memory into each session while saving remains under your control.
 
 **[Try it](#try-it-with-codex)** · **[Why Atlas](#built-on-brainsync-atlas)** · **[See the memory flow](#how-the-memory-flow-works)** · **[Controls](#what-gets-saved)** · **[Other integrations](#where-it-works)** · **[Questions](#questions-people-ask)**
 
@@ -55,7 +55,7 @@ This is the integration for **using** Atlas memory inside an agent workflow. It 
 Add the BrainSync marketplace directly from GitHub:
 
 ```text
-codex plugin marketplace add bsyncs/atlas-memory --ref v0.1.14
+codex plugin marketplace add bsyncs/atlas-memory --ref v0.1.15
 ```
 
 Open the Codex Plugins Directory, choose the BrainSync marketplace, and install **Atlas Memory**. Review and trust its hooks when Codex prompts you. No clone, source build, or marketplace JSON editing is part of the user install. [Official Codex plugin packaging guide](https://developers.openai.com/plugins/build/plugins)
@@ -175,7 +175,7 @@ When writeback is enabled, Atlas checks every completed turn. It combines a conc
 
 | Surface | Current status |
 |---|---|
-| Codex hooks, skills, and bundled MCP server | Supported in v0.1.14. |
+| Codex hooks, skills, and bundled MCP server | Supported in v0.1.15. |
 | Portable Agent Plugin manifest and stdio MCP tools | Included for compatible agent hosts. |
 | Claude Code, Cursor, Copilot CLI, and other agent hosts | Planned or baseline only; no parity claim yet. |
 | Other plugins that could call Atlas memory tools | Possible through an MCP-capable host; specific integrations have not been validated. |

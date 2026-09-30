@@ -142,6 +142,8 @@ test('session commands select, reuse, list, and leave shared working sessions', 
 
 test('builds bounded, event-specific queries', () => {
   assert.equal(projectName('C:\\work\\atlas'), 'atlas');
+  assert.equal(projectName('C:\\work\\atlas\\'), 'atlas');
+  assert.equal(projectName('/work/atlas/'), 'atlas');
   assert.equal(queryFor('UserPromptSubmit', { prompt: 'What changed?' }), 'What changed?');
   assert.match(queryFor('SubagentStart', { cwd: '/repo/app', agent_type: 'review' }), /review/);
 });

@@ -14,6 +14,11 @@ test('creates a stable Atlas working session for the same project root', () => {
   assert.equal(stableProjectSessionId(cwd), stableProjectSessionId(cwd));
   assert.match(stableProjectSessionId(cwd), /^atlas-project:project-a:[a-f0-9]{16}$/);
   assert.notEqual(stableProjectSessionId(cwd), stableProjectSessionId(path.resolve('workspace/project-b')));
+  assert.match(stableProjectSessionId('C:\\work\\project-a'), /^atlas-project:project-a:[a-f0-9]{16}$/);
+  assert.equal(
+    stableProjectSessionId('C:\\work\\project-a'),
+    stableProjectSessionId('c:/work/project-a'),
+  );
 });
 
 test('new shared IDs are valid and unique', () => {
