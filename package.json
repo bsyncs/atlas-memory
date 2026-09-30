@@ -1,0 +1,22 @@
+{
+  "name": "@bsyncs/atlas-memory",
+  "version": "0.1.14",
+  "private": true,
+  "description": "Persistent Atlas memory with automatic context hydration for AI agents.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bsyncs/atlas-memory.git"
+  },
+  "homepage": "https://atlas.bsyncs.com",
+  "type": "commonjs",
+  "scripts": {
+    "build:codex": "node scripts/build-codex-install.js",
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check-manifests.js && npm test",
+    "test:live": "node scripts/live-smoke.mjs",
+    "test:live:verbose": "node scripts/live-smoke.mjs --verbose"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "atlas": {
+      "command": "node",
+      "args": ["mcp-server/index.mjs"],
+      "cwd": ".",
+      "env_vars": ["ATLAS_API_KEY", "ATLAS_BASE_URL", "ATLAS_CONTEXT_PERSONA", "ATLAS_CONTEXT_SESSION_ID", "ATLAS_CONTEXT_TIMEOUT_MS", "XDG_CONFIG_HOME"]
+    }
+  }
+}

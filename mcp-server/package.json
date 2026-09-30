@@ -1,0 +1,10 @@
+{
+  "name": "@bsyncs/atlas-memory-mcp",
+  "version": "0.1.14",
+  "private": true,
+  "type": "module",
+  "description": "Dependency-free local MCP bridge for the Atlas Cognitive Brain API.",
+  "engines": {
+    "node": ">=18"
+  }
+}

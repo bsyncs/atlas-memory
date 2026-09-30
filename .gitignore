@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+.atlas-context-data/
+node_modules/
+coverage/
+dist/
+*.log
+codex-session-*.md
+
+# Internal product, research, and release working documents.
+docs/
+TODO.md
+
+# Machine-specific fallback generated for local development.
+hooks/user-hooks.windows.json

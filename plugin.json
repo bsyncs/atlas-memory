@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "atlas-memory",
+  "version": "0.1.14",
+  "description": "Hydrate AI-agent sessions and optionally preserve durable continuity in Atlas cognitive memory.",
+  "author": {
+    "name": "Bsyncs",
+    "email": "info@bsyncs.com",
+    "url": "https://atlas.bsyncs.com"
+  },
+  "homepage": "https://atlas.bsyncs.com",
+  "repository": "https://github.com/bsyncs/atlas-memory",
+  "keywords": ["atlas", "memory", "context", "agents", "persistent", "continuity", "knowledge-base", "shareable memory", "knowledge-graph"],
+  "extensions": {
+    "com.openai": {
+      "hooks": "./hooks/hooks.json",
+      "interface": {
+        "displayName": "Atlas Memory",
+        "shortDescription": "Persistent cognitive memory for agents",
+        "longDescription": "Retrieves tenant-scoped Atlas memories at lifecycle boundaries, offers opt-in secret-redacted continuity capture, and exposes explicit memory tools.",
+        "developerName": "Bsyncs",
+        "category": "Productivity",
+        "capabilities": ["Instructions", "Lifecycle hooks", "MCP tools"],
+        "websiteURL": "https://atlas.bsyncs.com",
+        "defaultPrompt": [
+          "Recall relevant context for this repository.",
+          "Remember this decision in Atlas.",
+          "Use Atlas to inspect the relationships relevant to this question."
+        ]
+      }
+    }
+  }
+}

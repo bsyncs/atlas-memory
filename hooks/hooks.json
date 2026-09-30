@@ -1,0 +1,88 @@
+{
+  "description": "Atlas Memory hydration for Codex sessions and subagents.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/atlas-hydrate.js\"",
+            "commandWindows": "if (Get-Command node -ErrorAction SilentlyContinue) { node \"$env:PLUGIN_ROOT\\hooks\\atlas-hydrate.js\" }",
+            "timeout": 8,
+            "statusMessage": "Atlas hydrating data...",
+            "additionalContextLimit": 3000
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/atlas-hydrate.js\"",
+            "commandWindows": "if (Get-Command node -ErrorAction SilentlyContinue) { node \"$env:PLUGIN_ROOT\\hooks\\atlas-hydrate.js\" }",
+            "timeout": 8,
+            "statusMessage": "Recalling Atlas context...",
+            "additionalContextLimit": 3000
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/atlas-hydrate.js\"",
+            "commandWindows": "if (Get-Command node -ErrorAction SilentlyContinue) { node \"$env:PLUGIN_ROOT\\hooks\\atlas-hydrate.js\" }",
+            "timeout": 8,
+            "statusMessage": "Loading Atlas memory for subagent...",
+            "additionalContextLimit": 3000
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/atlas-writeback.js\"",
+            "commandWindows": "if (Get-Command node -ErrorAction SilentlyContinue) { node \"$env:PLUGIN_ROOT\\hooks\\atlas-writeback.js\" }",
+            "timeout": 10,
+            "statusMessage": "Saving durable Atlas context before compaction..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/atlas-writeback.js\"",
+            "commandWindows": "if (Get-Command node -ErrorAction SilentlyContinue) { node \"$env:PLUGIN_ROOT\\hooks\\atlas-writeback.js\" }",
+            "timeout": 10,
+            "statusMessage": "Checking for durable Atlas updates..."
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/atlas-writeback.js\"",
+            "commandWindows": "if (Get-Command node -ErrorAction SilentlyContinue) { node \"$env:PLUGIN_ROOT\\hooks\\atlas-writeback.js\" }",
+            "timeout": 10,
+            "statusMessage": "Flushing durable Atlas context..."
+          }
+        ]
+      }
+    ]
+  }
+}
